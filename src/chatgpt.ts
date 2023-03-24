@@ -239,7 +239,7 @@ export class ChatGPTBot {
     // get reply from ChatGPT
     const chatgptReplyMessage = await this.onChatGPT(text);
     // the whole reply consist of: original text and bot reply
-    const wholeReplyMessage = `${text}\n----------\n${chatgptReplyMessage}`;
+    const wholeReplyMessage = `${text}\n小贴心❥正在努力回答你的问题~~\n${chatgptReplyMessage}`;
     await this.reply(room, wholeReplyMessage);
   }
 
@@ -272,7 +272,7 @@ export class ChatGPTBot {
   // handle message for customized task handlers
   async onCustimzedTask(message: Message) {
     // e.g. if a message starts with "麦扣", the bot sends "🤖️：call你的小可爱做咩啊 小哥哥!"
-    const myKeyword = "麦扣";
+    const myKeyword = "在干啥";
     if (message.text().includes(myKeyword)) {
       const myTaskContent = `回复所有含有"${myKeyword}"的消息`;
       const myReply = "🤖️：call你的小可爱做咩啊 小哥哥~";
