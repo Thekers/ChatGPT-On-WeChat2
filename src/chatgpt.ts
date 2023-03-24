@@ -35,7 +35,7 @@ export class ChatGPTBot {
   chatgptTriggerKeyword: string = Config.chatgptTriggerKeyword;
 
   // ChatGPT error response
-  chatgptErrorMessage: string = "🤖️：ChatGPT摆烂了，请稍后再试～";
+  chatgptErrorMessage: string = "🤖️：你的小可爱摆烂了，请稍后再试～";
 
   // ChatGPT model configuration
   // please refer to the OpenAI API doc: https://beta.openai.com/docs/api-reference/introduction
@@ -44,7 +44,7 @@ export class ChatGPTBot {
     model: "gpt-3.5-turbo",
     // add your ChatGPT model parameters below
     temperature: 0.8,
-    // max_tokens: 2000,
+     max_tokens: 4000,
   };
 
   // ChatGPT system content configuration (guided by OpenAI official document)
@@ -271,11 +271,11 @@ export class ChatGPTBot {
 
   // handle message for customized task handlers
   async onCustimzedTask(message: Message) {
-    // e.g. if a message starts with "麦扣", the bot sends "🤖️：call我做咩啊大佬!"
+    // e.g. if a message starts with "麦扣", the bot sends "🤖️：call你的小可爱做咩啊 小哥哥!"
     const myKeyword = "麦扣";
     if (message.text().includes(myKeyword)) {
       const myTaskContent = `回复所有含有"${myKeyword}"的消息`;
-      const myReply = "🤖️：call我做咩啊大佬";
+      const myReply = "🤖️：call你的小可爱做咩啊 小哥哥~";
       await message.say(myReply);
       console.log(`🎯 Customized task triggered: ${myTaskContent}`);
       console.log(`🤖️ ChatGPT says: ${myReply}`);
